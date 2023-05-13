@@ -64,14 +64,18 @@ const Body = () =>{
             <div className="restaurant-list">        
               { filterRestaurants?.map(
                   (restaurants) => {
-                    console.log(restaurants.data.id)
+                    console.log(restaurants.data.uuid)
                     return (
-                      <Link to= {"/Restaurant/:" + restaurants.data.id}>
-                        <RestaurantComponent 
-                        key={restaurants.data.id} 
+                      
+                      <Link to= {"/Restaurant/:" + restaurants.data.id}
+                        key={restaurants.data.uuid} 
+                      >
+                        <RestaurantComponent  
+                        
                         //using props
                         resData = {restaurants} />
-                      </Link>  
+                      </Link>
+                     
                           )
                   }
               )}
