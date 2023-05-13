@@ -2,6 +2,7 @@ import { useEffect ,useState } from "react";
 import { swiggyAPI_URL } from "../../constants";
 import RestaurantComponent from "./restaurantComponent";
 import ShimmerUI from "./shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchInput,restaurants){
   return restaurants.filter( (restaurant) => restaurant.data.name.toLowerCase().includes(searchInput.toString().toLowerCase()) )
@@ -27,13 +28,14 @@ const Body = () =>{
         return;
     }
 
+    
     // if restaurants data is empty then load shimmer UI
 
     if(!allRestaturants) return null
 
     if(filterRestaurants.length === 0 && allRestaturants.length > 0) return <h1>No data present for search value : {searchInput}</h1>
 
-    return (filterRestaurants.length === 0 ) ? <ShimmerUI /> : (
+    return (
       <>
           <div className="search-container">
             <input  type="text"
@@ -56,18 +58,26 @@ const Body = () =>{
           >Search            
           </button>
           </div>      
-      
-          <div className="restaurant-list">        
-            { filterRestaurants?.map(
-                (restaurants) => {
-                  console.log(restaurants.data.id)
-                  return ( <RestaurantComponent 
-                    key={restaurants.data.id} 
-                    //using props
-                    resData = {restaurants} /> )
-                }
-            )}
-          </div>
+          {filterRestaurants.length === 0  ? (
+            <ShimmerUI />
+          ) : (            
+            <div className="restaurant-list">        
+              { filterRestaurants?.map(
+                  (restaurants) => {
+                    console.log(restaurants.data.id)
+                    return (
+                      <Link to= {"/Restaurant/:" + restaurants.data.id}>
+                        <RestaurantComponent 
+                        key={restaurants.data.id} 
+                        //using props
+                        resData = {restaurants} />
+                      </Link>  
+                          )
+                  }
+              )}
+            </div>
+          )}
+
       </>
     )
   }
