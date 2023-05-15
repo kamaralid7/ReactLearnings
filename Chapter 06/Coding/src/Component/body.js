@@ -28,6 +28,17 @@ const Body = () =>{
         return;
     }
 
+    const searchRestaurants = (searchInput,restaurants) =>{
+      if(searchInput !== ""){
+        const data = filterData(searchInput,restaurants)
+        setFilterRestaurants(data);
+        setErrorMessage("");
+        if(data.length === 0)
+        {
+          setErrorMessage("Search data available for "+ searchInput);
+        }
+      }
+    };
     
     // if restaurants data is empty then load shimmer UI
 
@@ -51,8 +62,8 @@ const Body = () =>{
                     //need to filter data
                     // update the state - restaurant
                     // filter data
-                    const data = filterData(searchInput,allRestaturants)
-                    setFilterRestaurants(data)
+                
+                    searchRestaurants(searchInput,allRestaturants)
                   }}
           
           >Search            

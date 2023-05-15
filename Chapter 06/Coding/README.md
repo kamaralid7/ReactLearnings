@@ -10,3 +10,16 @@ step 4 Search filter in UI
 step 5 filter function to filter useState
 step 6 footer ui
 
+                <li>
+                  { isLoggedin ? (
+                  <button className="logout-btn"
+                    onClick={() => setIsLoggedin(false)}
+                  >
+
+                  </button>
+                ) : (
+                  <button className="login-btn">
+                    onClick={() =>{ navigate("/login")}}
+                  </button>
+
+                )}</li>

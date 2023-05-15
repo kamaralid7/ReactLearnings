@@ -8,6 +8,7 @@ import Body from "./src/Component/body";
 import Footer from "./src/Component/footer";
 import About from "./src/Component/About";
 import Contact from "./src/Component/Contact";
+import Error from "./src/Component/Error";
 import Restaurant from "./src/Component/restaurant";
 
 //import  ReactDOM  from "react-dom/client";
