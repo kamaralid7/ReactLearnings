@@ -13,6 +13,7 @@ const Body = () =>{
     const [allRestaturants, setAllRestaurants] = useState([]);
     const [filterRestaurants, setFilterRestaurants] = useState([]);
     const [searchInput, setSeachInput] = useState([]);
+    const [errorMessage, setErrorMessage] = useState([])    
     
     useEffect( () => {
 
@@ -35,7 +36,16 @@ const Body = () =>{
         setErrorMessage("");
         if(data.length === 0)
         {
-          setErrorMessage("Search data available for "+ searchInput);
+          setErrorMessage("Search data not available for "+ searchInput);
+        }
+      }
+      else{
+        const data = filterData(searchInput,restaurants)
+        setFilterRestaurants(data);
+        setErrorMessage("");
+        if(data.length === 0)
+        {
+          setErrorMessage("Search data is not available");
         }
       }
     };
@@ -43,8 +53,6 @@ const Body = () =>{
     // if restaurants data is empty then load shimmer UI
 
     if(!allRestaturants) return null
-
-    if(filterRestaurants.length === 0 && allRestaturants.length > 0) return <h1>No data present for search value : {searchInput}</h1>
 
     return (
       <>
@@ -62,24 +70,26 @@ const Body = () =>{
                     //need to filter data
                     // update the state - restaurant
                     // filter data
-                
+                    setIsL(!isL);
                     searchRestaurants(searchInput,allRestaturants)
                   }}
           
           >Search            
           </button>
-          </div>      
+          </div>   
+
+          {errorMessage && <div className="error-container" >{errorMessage}</div>}             
           {filterRestaurants.length === 0  ? (
             <ShimmerUI />
           ) : (            
             <div className="restaurant-list">        
               { filterRestaurants?.map(
                   (restaurants) => {
-                    console.log(restaurants.data.uuid)
+
                     return (
                       
                       <Link to= {"/Restaurant/:" + restaurants.data.id}
-                        key={restaurants.data.uuid} 
+                        key={restaurants.data.id} 
                       >
                         <RestaurantComponent  
                         
