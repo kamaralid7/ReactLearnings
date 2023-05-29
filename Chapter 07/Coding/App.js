@@ -10,7 +10,7 @@ import About from "./src/Component/About";
 import Contact from "./src/Component/Contact";
 import Error from "./src/Component/Error";
 import Restaurant from "./src/Component/restaurant";
-
+import Profile from "./src/Component/profile";
 //import  ReactDOM  from "react-dom/client";
 
 
@@ -47,6 +47,12 @@ const appRouter = createBrowserRouter([
         path: "/About",
         element: <About />,
         errorElement: <Error />,
+        children:[
+          {
+            path: "profilePage",
+            element: <Profile />,
+          },
+        ]
       },
       {
         path: "/Contact",

@@ -1,4 +1,6 @@
 import food from "../Images/burger-image.png";
+import { Outlet } from "react-router-dom";
+import ProfileFunctionalComponent from "./ProfileComponent";
 
 const About = () => {
   return (
@@ -10,6 +12,12 @@ const About = () => {
         <h4>
           "Better you will feel if you eat a Food<span>Fire</span> healthy meal"
         </h4>
+      </div>
+      <div>
+        <ProfileFunctionalComponent Name="Kamarali" xyz = "Awesome"/>
+      </div>
+      <div className="profileOutlet">
+        <Outlet />
       </div>
       <div className="about-right">
         <img src={food} alt="Food Image" />
