@@ -87,7 +87,8 @@ param => {
 
 Rest parameters, default parameters, and destructuring within params are supported, and always require parentheses:
 ```sh
-(a, b, ...r) => <span style='color: red;'>expression</span>
+(a, b, ...r) => <span style='color: red;'>expression</span> A very <span style='color: red;'>long</span> sentence.
+
 (a = 400, b = 20, c) => expression
 ([a, b] = [10, 20]) => expression
 ({ a, b } = { a: 10, b: 20 }) => expression
