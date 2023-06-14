@@ -92,3 +92,17 @@ Rest parameters, default parameters, and destructuring within params are support
 ([a, b] = [10, 20]) => expression
 ({ a, b } = { a: 10, b: 20 }) => expression
 ```
+
+Arrow functions can be async by prefixing the expression with the async keyword.
+```sh
+async param => expression
+async (param1, param2, ...paramN) => {
+  statements
+}
+```
+
+## Description
+Let's decompose a traditional anonymous function down to the simplest arrow function step-by-step. Each step along the way is a valid arrow function.
+
+>Note
+Traditional function expressions and arrow functions have more differences than their syntax. We will introduce their behavior differences in more detail in the next few subsections.
