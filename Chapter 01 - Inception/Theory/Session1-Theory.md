@@ -105,4 +105,26 @@ async (param1, param2, ...paramN) => {
 Let's decompose a traditional anonymous function down to the simplest arrow function step-by-step. Each step along the way is a valid arrow function.
 
 >Note
-Traditional function expressions and arrow functions have more differences than their syntax. We will introduce their behavior differences in more detail in the next few subsections.
+Traditional function expressions and arrow functions have more differences than their syntax.
+
+```sh
+// Traditional anonymous function
+(function (a) {
+  return a + 100;
+});
+
+// 1. Remove the word "function" and place arrow between the argument and opening body bracket
+(a) => {
+  return a + 100;
+};
+
+// 2. Remove the body braces and word "return" — the return is implied.
+(a) => a + 100;
+
+// 3. Remove the parameter parentheses
+a => a + 100;
+```
+
+In the example above, both the parentheses around the parameter and the braces around the function body may be omitted. However, they can only be omitted in certain cases.
+
+The parentheses can only be omitted if the function has a single simple parameter. If it has multiple parameters, no parameters, or default, destructured, or rest parameters, the parentheses around the parameter list are required.
