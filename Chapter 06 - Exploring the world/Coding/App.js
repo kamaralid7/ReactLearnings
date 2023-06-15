@@ -1,5 +1,5 @@
 // ## Namaste React Course by Akshay Saini
-// Chapter 05 - Let's get Hooked!
+// # Chapter 06 - Exploring the world
 
 import React from "react";
 import ReactDOM from "react-dom/client";
