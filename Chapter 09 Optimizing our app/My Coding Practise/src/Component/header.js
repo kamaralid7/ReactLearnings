@@ -26,6 +26,7 @@ const Logo = () =>{
                 <li><Link to = "/">Home</Link></li>
                 <li className="aboutUs"><Link to="/About">About Us</Link></li>
                 <li className="Shopping"  >Shopping</li>      
+                <li ><Link to = "/Instamart">Instamart </Link>  </li>
               { isLoading ? 
                     (
                       <button className="logout-btn" onClick={ () => setIsLoading(!isLoading)}>Log Out</button>

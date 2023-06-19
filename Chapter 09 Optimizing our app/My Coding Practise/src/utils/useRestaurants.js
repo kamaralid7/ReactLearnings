@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 const useRestaurant = (resId) => {
 
+    //Hooks are just like normal functions
+
     const [restaurant, setRestaurant] = useState([]);
     const [menuItems, setMenuItems] = useState([]);
 
@@ -29,4 +31,4 @@ const useRestaurant = (resId) => {
     return restaurants;
 }
 
-export default useRestaurant
+export default useRestaurant;

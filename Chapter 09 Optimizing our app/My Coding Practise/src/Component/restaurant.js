@@ -10,10 +10,7 @@ const Restaurant = () => {
     const restaurants = useRestaurant(resId);
 
     const restaurant = restaurants.restaurant;
-    const menuItems = restaurants.menuItems;
-
-    
-
+    const menuItems = restaurants.menuItems;    
 
     return(
         <>

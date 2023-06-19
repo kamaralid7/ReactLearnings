@@ -1,4 +1,4 @@
-import React from "react";
+import React , {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -11,19 +11,20 @@ import Contact from "./src/Component/Contact";
 import Error from "./src/Component/Error";
 import Restaurant from "./src/Component/restaurant";
 import Profile from "./src/Component/profile";
-//import  ReactDOM  from "react-dom/client";
+import ShimmerUI from "./src/Component/shimmer";
+//import Instamart from "./src/Component/Instamart";
 
 
-// Manipulate the HTML DOM using Javscript
-// const heading = document.createElement("h1");
-// heading.innerHTML = "Namaste Everyone";
-// const root = document.getElementById("root");
-// root.appendChild(heading);
+// Chunking
+// Code Splitting
+// Dynamic Bunding
+// Lazy Loading
+// On Demand Loading
+// Dynamic Import
 
-// Manipulate the HTML DOM using React
-
-
-
+// When we are loading our Component on Demand React suspends it!
+//Upon on Demand Loading -> upon render -> suspend loading
+const Instamart = lazy (  () => import ("./src/Component/Instamart") )
 
 
 const AppRestaurant = () => {
@@ -36,6 +37,8 @@ const AppRestaurant = () => {
   )
   
 }
+
+
 
 const appRouter = createBrowserRouter([
   {
@@ -66,6 +69,13 @@ const appRouter = createBrowserRouter([
         path: "/Restaurant/:resId",
         element : <Restaurant />,
       },
+      {
+        path: "/Instamart",
+        element: (
+          <Suspense fallback = { <ShimmerUI />} > 
+              <Instamart /> 
+          </Suspense>),
+      }
     ]
   },
   
