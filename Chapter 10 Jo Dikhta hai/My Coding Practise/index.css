@@ -1,43 +1,18 @@
-/* Font family */
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
-/* Select all CSS Start*/
-* {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    font-family: "PT Sans", "Lato", Calibri, sans-serif;
-  }
+/*
+    Normal Natice CSS
+    inline CSS
+    Component Libraries - Material UI, Base UI, Ant, Chakra
+    Styled Component
 
-  a {
-    text-decoration: none;
-    color: inherit;
-}
+Tailwind CSS framework
+    CSS on go
+    reusability
+    less bundle size
+    flexible UI (Customizable)
 
-  /* Select all CSS End*/
+*/
 
-/* create global variable with :root selector Start*/
-:root {
-    --header-bg-color: rgb(1, 163, 144);
-    --footer-bg-color: rgb(1, 163, 144);
-    --body-bg-color: #e3e3e3;
-    --input-bg: #f2f2f2;
-    --input-bg-focus: #dbdbdb;
-    --text-color: #000;
-    --light-green: #00ad1d;
-    --dark-green: #016034;
-    --orange: #d97919;
-    --light-orange: #ffaf60;
-    --dark-orange: #c26100;
-    --x-dark-orange: rgb(157, 42, 1);
-    --light-red: rgb(236, 56, 56);
-    --white: #fff;
-    --light-black: rgb(23, 23, 23);
-    --light-blue: #0463ac;
-    --dark-blue: #070062;
-  }
-  /* create global variable with :root selector End*/
 
   /* Header CSS Start*/
 

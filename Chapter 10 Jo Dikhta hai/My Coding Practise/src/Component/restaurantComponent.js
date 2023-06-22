@@ -12,13 +12,15 @@ const RestaurantComponent = (props) => {
 
 
     return(
-        <div className="restaurant-card">
+        <div className="restaurant-card w-56 
+        p-2 m-5 shadow-lg cursor-pointer rounded-md hover: scale-105 
+        bg-pink-100 ">
             <img    src={
                         "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
                         cloudinaryImageId
                 }
             />
-            <h2>{name}</h2>
+            <h2 className="font-bold text-xl">{name}</h2>
             <h4>{cuisines.join(", ")}</h4>
             <h4>{area}</h4>
             <span>

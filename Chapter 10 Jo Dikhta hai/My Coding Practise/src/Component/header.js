@@ -7,9 +7,9 @@ import { useEffect, useState, useRef } from "react";
 
 const Logo = () =>{
     return (
-      <div className="appLogo">      
+      <div className="">      
         <a href="/">
-          <img src={FireFoodLogo} className="logo" alt = "Fire Food Logo"></img>
+          <img src={FireFoodLogo} className="h-28 px-2 " alt = "Fire Food Logo"></img>
         </a>      
       </div>
     )
@@ -19,20 +19,20 @@ const Logo = () =>{
     const [ isLoading, setIsLoading ] = useState(false);
     const navigate = useNavigate();
     return (
-      <div className="app-header">
+      <div className="flex justify-between bg-green-300 shadow-lg   ">
         <Logo></Logo>
         <div className="nav-items">
-            <ul>
-                <li><Link to = "/">Home</Link></li>
-                <li className="aboutUs"><Link to="/About">About Us</Link></li>
-                <li className="Shopping"  >Shopping</li>      
-                <li ><Link to = "/Instamart">Instamart </Link>  </li>
+            <ul className="flex py-10   ">
+                <li className="px-2"><Link to = "/">Home</Link></li>
+                <li className="px-2"><Link to="/About">About Us</Link></li>
+                <li className="px-2"  >Shopping</li>      
+                <li className="px-2" ><Link to = "/Instamart">Instamart </Link>  </li>
               { isLoading ? 
                     (
-                      <button className="logout-btn" onClick={ () => setIsLoading(!isLoading)}>Log Out</button>
+                      <button className="logout-btn px-2" onClick={ () => setIsLoading(!isLoading)}>Log Out</button>
                     ) : 
                     (
-                      <button className="login-btn" onClick={ () => setIsLoading(!isLoading)}>Log In</button>
+                      <button className="login-btn px-2" onClick={ () => setIsLoading(!isLoading)}>Log In</button>
                     )
               }
             </ul>
