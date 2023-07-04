@@ -12,3 +12,7 @@ Prop drilling occurs when a parent component passes data down to its children an
 
 ## Lifting the State Up
 In React, sharing state is accomplished by moving it up to the closest common ancestor of the components that need it. This is called “lifting state up”.
+
+1.  Remove state from the child components.
+2.  Pass hardcoded data from the common parent.
+3.  Add state to the common parent and pass it down together with the event handlers.
