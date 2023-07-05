@@ -1,17 +1,18 @@
-import React , {lazy, Suspense} from "react";
+import React , {useState,lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 
 import Header from "./src/Component/header";
 import Body from "./src/Component/Body";
-import Footer from "./src/Component/footer";
+import Footer from "./src/Component/Footer";
 import About from "./src/Component/About";
 import Contact from "./src/Component/Contact";
 import Error from "./src/Component/Error";
 import Restaurant from "./src/Component/Restaurant";
 import Profile from "./src/Component/profile";
 import ShimmerUI from "./src/Component/Shimmer";
+import UserContext from "./src/utils/UserContext";
 //import Instamart from "./src/Component/Instamart";
 
 
@@ -28,12 +29,25 @@ const Instamart = lazy (  () => import ("./src/Component/Instamart") )
 
 
 const AppRestaurant = () => {
+  const [user, setUser] = useState({    
+      name: "Kamarali Dukandar",
+      email: "kamaralid@gmail.com"
+    }
+  )
+
   return (
-    <React.Fragment>
-      <Header />
+    <>
+    <Header />
+    <UserContext.Provider value={
+      {
+        user:user,
+      }
+    }>
+      
       <Outlet />
       <Footer />
-    </React.Fragment>    
+    </UserContext.Provider>    
+    </>
   )
   
 }
