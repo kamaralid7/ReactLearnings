@@ -16,3 +16,8 @@ In React, sharing state is accomplished by moving it up to the closest common an
 1.  Remove state from the child components.
 2.  Pass hardcoded data from the common parent.
 3.  Add state to the common parent and pass it down together with the event handlers.
+
+
+https://react.dev/_next/image?url=%2Fimages%2Fdocs%2Fdiagrams%2Fpassing_data_prop_drilling.png&w=1920&q=75
+
+# Context
