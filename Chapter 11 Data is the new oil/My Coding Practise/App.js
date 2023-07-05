@@ -4,14 +4,14 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 
 import Header from "./src/Component/header";
-import Body from "./src/Component/body";
+import Body from "./src/Component/Body";
 import Footer from "./src/Component/footer";
 import About from "./src/Component/About";
 import Contact from "./src/Component/Contact";
 import Error from "./src/Component/Error";
-import Restaurant from "./src/Component/restaurant";
+import Restaurant from "./src/Component/Restaurant";
 import Profile from "./src/Component/profile";
-import ShimmerUI from "./src/Component/shimmer";
+import ShimmerUI from "./src/Component/Shimmer";
 //import Instamart from "./src/Component/Instamart";
 
 

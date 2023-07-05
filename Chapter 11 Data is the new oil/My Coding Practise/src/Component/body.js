@@ -1,7 +1,7 @@
 import { useEffect ,useState } from "react";
 import { swiggyAPI_URL } from "../../constants";
-import RestaurantComponent from "./restaurantComponent";
-import ShimmerUI from "./shimmer";
+import RestaurantComponent from "./RestaurantComponent";
+import ShimmerUI from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 
@@ -9,62 +9,64 @@ function filterData(searchInput,restaurants){
   return restaurants.filter( (restaurant) => restaurant.data.name.toLowerCase().includes(searchInput.toString().toLowerCase()) )
 }
 
-const Body = () =>{
 
-    const [allRestaturants, setAllRestaurants] = useState([]);
-    const [filterRestaurants, setFilterRestaurants] = useState([]);
-    const [searchInput, setSeachInput] = useState([]);
-    const [errorMessage, setErrorMessage] = useState([])    
-    
-    useEffect( () => {
+const RestaurantList = ({filterRestaurants}) => {
 
-        const restaurantsData =  getRestaurants();
-        
-    },[])
+  return(
+    <>
+      <div className="restaurant-list flex flex-wrap 
+      justify-center items-center  
+      ">        
+        { filterRestaurants?.map(
+            (restaurants) => {
 
-    async function getRestaurants(){
-        const data = await fetch(swiggyAPI_URL);
-        const jsonData = await data.json();
-        setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
-        setFilterRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
-        return;
-    }
+              return (
+                
+                <Link to= {"/Restaurant/" + restaurants.data.id}
+                  key={restaurants.data.id} 
+                >
+                  <RestaurantComponent  
+                  
+                  //using props
+                  resData = {restaurants} />
+                </Link>
+              
+                    )
+            }
+        )}
+      </div>
+    </>
+  )
+}
 
-    const searchRestaurants = (searchInput,restaurants) =>{
-      if(searchInput !== ""){
-        const data = filterData(searchInput,restaurants)
-        setFilterRestaurants(data);
-        setErrorMessage("");
-        if(data.length === 0)
-        {
-          setErrorMessage("Search data not available for "+ searchInput);
-        }
+const SearchRestaurants = ({allRestaturants, setFilterRestaurants,setErrorMessage}) => {
+  const [searchInput, setSeachInput] = useState([]);
+
+  const searchRestaurants = (searchInput,restaurants) =>{
+    if(searchInput !== ""){
+      const data = filterData(searchInput,restaurants)
+      console.log(setFilterRestaurants)
+      setFilterRestaurants(data);
+      setErrorMessage("");
+      if(data.length === 0)
+      {
+        setErrorMessage("Search data not available for "+ searchInput);
       }
-      else{
-        const data = filterData(searchInput,restaurants)
-        setFilterRestaurants(data);
-        setErrorMessage("");
-        if(data.length === 0)
-        {
-          setErrorMessage("Search data is not available");
-        }
-      }
-    };
-    
-    // if restaurants data is empty then load shimmer UI
-
-    const isOnline = useOnline();
-
-    if(!isOnline)
-    {
-       return <h1>🔴 Offline, Please check your internet connection!</h1> ;
-       
     }
+    else{
+      const data = filterData(searchInput,restaurants)
+      
+      setFilterRestaurants(data);
+      setErrorMessage("");
+      if(data.length === 0)
+      {
+        setErrorMessage("Search data is not available");
+      }
+    }
+  };
 
-    if(!allRestaturants) return null
-
-    return (
-      <>
+  return (
+    <>
           <div className="search-container m-5  justify-center items-center ">
             <input  type="text" 
                     className="search-input w-2/5 outline-none  shadow-sm border-solid border-2 border-gray-300  rounded-l   "
@@ -86,32 +88,61 @@ const Body = () =>{
           >Search            
           </button>
           </div>   
+    </>
+  )
+
+}
+
+const Body = () =>{
+
+    const [allRestaturants, setAllRestaurants] = useState([]);
+    const [filterRestaurants, setFilterRestaurants] = useState([]);
+
+    const [errorMessage, setErrorMessage] = useState([])    
+    
+    useEffect( () => {
+
+        const restaurantsData =  getRestaurants();
+        
+    },[])
+
+    async function getRestaurants(){
+        const data = await fetch(swiggyAPI_URL);
+        const jsonData = await data.json();
+        setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+        setFilterRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+        return;
+    }
+
+
+    
+    // if restaurants data is empty then load shimmer UI
+
+    const isOnline = useOnline();
+
+    if(!isOnline)
+    {
+       return <h1>🔴 Offline, Please check your internet connection!</h1> ;
+       
+    }
+
+    if(!allRestaturants) return null
+
+    return (
+      <>
+  
+
+          <SearchRestaurants 
+          allRestaturants = {allRestaturants} 
+          setFilterRestaurants = {setFilterRestaurants}
+          setErrorMessage = {setErrorMessage}
+          />
 
           {errorMessage && <div className="error-container" >{errorMessage}</div>}             
           {filterRestaurants.length === 0  ? (
             <ShimmerUI />
           ) : (            
-            <div className="restaurant-list flex flex-wrap 
-            justify-center items-center  
-            ">        
-              { filterRestaurants?.map(
-                  (restaurants) => {
-
-                    return (
-                      
-                      <Link to= {"/Restaurant/" + restaurants.data.id}
-                        key={restaurants.data.id} 
-                      >
-                        <RestaurantComponent  
-                        
-                        //using props
-                        resData = {restaurants} />
-                      </Link>
-                     
-                          )
-                  }
-              )}
-            </div>
+            <RestaurantList filterRestaurants = {filterRestaurants} setFilterRestaurants = {setFilterRestaurants} />
           )}
 
       </>

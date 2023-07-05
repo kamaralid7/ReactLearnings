@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { filterItems, foods } from "../utils/data";
 
-const Section = ({title, description, isVisible, setIsVisible }) => {
+const Section = ({title, description, isVisible, setIsVisible, setVisibleSection }) => {
 
     return(
         <div className=" border-black border-solid border-2 p-2 m-2  "> 
@@ -11,7 +11,7 @@ const Section = ({title, description, isVisible, setIsVisible }) => {
             {
                 isVisible ?                
                 <button 
-                onClick={ () => { setIsVisible()} }
+                onClick={ () => { setVisibleSection("")} }
                 className=" text-bold underline cursor-pointer"
                     
                 >Hide</button>
@@ -35,18 +35,21 @@ const InstamartAcc = () => {
             description = {"What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}            
             isVisible={visibleSection === "about" }
             setIsVisible = { () => setVisibleSection("about")}
+            setVisibleSection = {setVisibleSection}
             />    
             
             <Section title = {"Team Instamart"} 
             description = {"What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}            
             isVisible={visibleSection === "team"}
             setIsVisible = { () => setVisibleSection("team")}
+            setVisibleSection = {setVisibleSection}
             />       
 
             <Section title = {"Careers"} 
             description = {"What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."}            
             isVisible={visibleSection === "careers"}
             setIsVisible = { () => setVisibleSection("careers")}
+            setVisibleSection = {setVisibleSection}
             />                
          </div>
      )
