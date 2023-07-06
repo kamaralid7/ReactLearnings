@@ -27,26 +27,26 @@ Do not return anything from reducer take a state and modify it.
 
 ## Steps for Reducer
 Create Store.  
-    -   configureStore() - @reduxjs/toolkit.  
+&emsp;-   configureStore() - @reduxjs/toolkit.  
 
 Provide my store to app  
-    -   <Provider store = {store}> - import from react-redux.
+&emsp;-   <Provider store = {store}> - import from react-redux.
 
 Slice  
-    - @reduxjs/toolkit -   createSlice({  
+&emsp;- @reduxjs/toolkit -   createSlice({  
 &emsp;&emsp;&emsp;name:"",  
-            initialState:  
-            reducers:{  
-                addItem: (state,action) => { state = action.payload}  
-            }  
-        })  
-    export const {} = cartSlice.actions;  
-    export default cartSlice.reducer;    
+&emsp;&emsp;&emsp;initialState:  
+&emsp;&emsp;&emsp;reducers:{  
+&emsp;&emsp;&emsp;&emsp;addItem: (state,action) => { state = action.payload}  
+&emsp;&emsp;&emsp;}  
+&emsp;&emsp;})  
+&emsp;&emsp;export const {} = cartSlice.actions;  
+&emsp;&emsp;export default cartSlice.reducer;    
 
 Put that Slice into Store.  
-    -{  
-        reducer: {  
-            cart: cartSlice,  
-            user: userSlice  
-        }  
-    }  
+&emsp;&emsp;-{  
+&emsp;&emsp;&emsp;reducer: {  
+&emsp;&emsp;&emsp;&emsp;cart: cartSlice,  
+&emsp;&emsp;&emsp;&emsp;user: userSlice  
+&emsp;&emsp;}  
+&emsp;}  
