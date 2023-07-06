@@ -32,21 +32,21 @@ Create Store.
 Provide my store to app  
     -   <Provider store = {store}> - import from react-redux.
 
-Slice 
-    - @reduxjs/toolkit -   createSlice({
-            name:"",
-            initialState:
-            reducers:{
-                addItem: (state,action) => { state = action.payload}
-            }
-        })
-    export const {} = cartSlice.actions;
+Slice  
+    - @reduxjs/toolkit -   createSlice({  
+            name:"",  
+            initialState:  
+            reducers:{  
+                addItem: (state,action) => { state = action.payload}  
+            }  
+        })  
+    export const {} = cartSlice.actions;  
     export default cartSlice.reducer;    
 
-Put that Slice into Store.
-    -{
-        reducer: {
-            cart: cartSlice,
-            user: userSlice
-        }
-    }
+Put that Slice into Store.  
+    -{  
+        reducer: {  
+            cart: cartSlice,  
+            user: userSlice  
+        }  
+    }  
