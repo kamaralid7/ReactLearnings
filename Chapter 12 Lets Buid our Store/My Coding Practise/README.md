@@ -34,7 +34,7 @@ Provide my store to app
 
 Slice  
     - @reduxjs/toolkit -   createSlice({  
-emsp emsp emsp            name:"",  
+&emsp;&emsp;&emsp;name:"",  
             initialState:  
             reducers:{  
                 addItem: (state,action) => { state = action.payload}  
