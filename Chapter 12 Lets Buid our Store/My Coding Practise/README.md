@@ -26,10 +26,10 @@ Do not return anything from reducer take a state and modify it.
 
 
 ## Steps for Reducer
-Create Store.
-    -   configureStore() - @reduxjs/toolkit.
+Create Store.  
+    -   configureStore() - @reduxjs/toolkit.  
 
-Provide my store to app
+Provide my store to app  
     -   <Provider store = {store}> - import from react-redux.
 
 Slice 
