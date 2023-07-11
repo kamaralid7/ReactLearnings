@@ -16,6 +16,7 @@ import UserContext from "./src/utils/UserContext";
 //import Instamart from "./src/Component/Instamart";
 import {Provider} from "react-redux";
 import store from "./src/utils/store";
+import Cart from "./src/Component/Cart";
 
 // Chunking
 // Code Splitting
@@ -92,6 +93,10 @@ const appRouter = createBrowserRouter([
           <Suspense fallback = { <ShimmerUI />} > 
               <Instamart /> 
           </Suspense>),
+      },
+      {
+        path: "/Cart",
+        element: <Cart /> 
       }
     ]
   },
