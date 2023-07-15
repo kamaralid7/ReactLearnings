@@ -7,26 +7,16 @@ import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 
-
-
-
-const Logo = () =>{
-    return (
-      <div className="">      
-        <a href="/">
-          <img src={FireFoodLogo} className="h-28 px-2 " alt = "Fire Food Logo"></img>
-        </a>      
-      </div>
-    )
-  }
   
   const Header = () =>{
     const [isLoggedIn, setIsLoggedIn] = useState(true) ;
+    const {user} = useContext(UserContext);
+    const cartItems = useSelector( (store) => store.cart.items)
+    
     const navigate = useNavigate();
     const isOnline = useOnline();  
 
-    const {user} = useContext(UserContext);
-    const cartItems = useSelector( (store) => store.cart.items)
+
 
     function toggleLogin(){
       setIsLoggedIn(!isLoggedIn)
@@ -47,6 +37,17 @@ const Logo = () =>{
 
             </ul>
         </div>
+      </div>
+    )
+  }
+
+
+  const Logo = () =>{
+    return (
+      <div className="">      
+        <a href="/">
+          <img data-testid="logo"  src={FireFoodLogo} className="h-28 px-2 " alt = "Fire Food Logo"></img>
+        </a>      
       </div>
     )
   }

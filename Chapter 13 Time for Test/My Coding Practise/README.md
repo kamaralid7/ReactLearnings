@@ -22,3 +22,7 @@ Configure babel
 Wrote expect sum test
 
 gitignore coverage report
+
+Install @babel/preset-react
+
+Set @babel/preset-react runtime to automatic
