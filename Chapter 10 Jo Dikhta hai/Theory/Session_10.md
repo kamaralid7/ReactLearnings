@@ -13,7 +13,7 @@
 
 * Install tailwind css
 
-```npm
+```node
 
 npm install -D tailwindcss postcss
 npx tailwindcss init
@@ -31,7 +31,7 @@ npx tailwindcss init
 ```
 
 * Configure your template paths
-```javascript
+```nodejs
 module.exports = {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
