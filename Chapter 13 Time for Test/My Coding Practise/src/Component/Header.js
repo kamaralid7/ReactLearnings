@@ -29,10 +29,10 @@ import { useSelector } from "react-redux";
                 <li className="px-2 text-bold text-orange-600">{user.name}</li>
                 <li className="px-2"><Link to = "/">Home</Link></li>
                 <li className="px-2"><Link to="/About">About Us</Link></li>
-                <li className="px-2"  ><Link to="/Cart">Cart - {cartItems.length}</Link></li>      
+                <li className="px-2"  ><Link to="/Cart" data-testid = "cart_Items" >Cart - {cartItems.length}</Link></li>      
                 <li className="px-2" ><Link to = "/Instamart">Instamart </Link>  </li>
                 <li className="px-2"> <button className="nav--btn" onClick={() => {toggleLogin()}} > {isLoggedIn ?  "Log Out " : "Log In " }  
-                  <span className={isOnline ? "text-green-600" : "text-red-600" }>●</span></button>
+                  <span data-testid = "online-status" className={isOnline ? "text-green-600" : "text-red-600" }>●</span></button>
                 </li>
 
             </ul>

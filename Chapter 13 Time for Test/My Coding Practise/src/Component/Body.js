@@ -14,7 +14,9 @@ const RestaurantList = ({filterRestaurants}) => {
 
   return(
     <>
-      <div className="restaurant-list flex flex-wrap 
+      <div 
+      data-testid="res-list"
+      className="restaurant-list flex flex-wrap 
       justify-center items-center  
       ">        
         { filterRestaurants?.map(
@@ -67,16 +69,18 @@ const SearchRestaurants = ({allRestaturants, setFilterRestaurants,setErrorMessag
 
   return (
     <>
-          <div className="search-container m-5  justify-center items-center ">
+          <div  className="search-container m-5  justify-center items-center ">
             <input  type="text" 
                     className="search-input w-2/5 outline-none  shadow-sm border-solid border-2 border-gray-300  rounded-l   "
                     placeholder="Search a restaurant you want..."
                     value={searchInput}
+                    data-testid="search-input"
                     onChange = { (e) => {
                         setSeachInput(e.target.value);
                     }}
             />        
           <button className="search-btn w-1/12  bg-orange-600 rounded-r  shadow-sm  hover:bg-green-700  "
+                  data-testid = "search-btn"
                   onClick={ () =>{
                     //need to filter data
                     // update the state - restaurant
