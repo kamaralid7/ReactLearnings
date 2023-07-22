@@ -33,6 +33,25 @@ This error is thrown as Exception by React when the promise to dynamically impor
 
 # Advantages and disadvantages of using this code splitting pattern?
 
+<table>
+<tr>
+    <th>
+    Advantages
+    </th>
+    <th>
+    Disadvantages
+    </th>
+</tr>
+<tr>
+    <td>
+    Reduces the page load time by bundling the large code into smaller bundles and laoding dynamically only when the component is loaded
+    </td>
+    <td>
+    Though the initial page load time is reduced, this increases the load time of each component thats loaded dynamically
+    </td>
+</tr>
+</table>
+
 |Advantages	                                | Disadvantages
 Reduces the page load time by bundling the  | Though the initial page load time                                           | is reduced, this increases the load time                                          time of each component thats    loaded                                        dynamically
 large code into smaller bundles and laoding |
