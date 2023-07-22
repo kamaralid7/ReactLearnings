@@ -31,7 +31,7 @@ npx tailwindcss init
 ```
 
 * Configure your template paths
-```nodejs
+```javascript
 module.exports = {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
