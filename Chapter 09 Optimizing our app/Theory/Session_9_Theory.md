@@ -49,12 +49,16 @@ This error is thrown as Exception by React when the promise to dynamically impor
     <td>
     Though the initial page load time is reduced, this increases the load time of each component thats loaded dynamically
     </td>
+</tr>
+<tr>    
     <td>
         Only the components that the user needs are loaded initially
     </td>
     <td>
     There will be many http requests as the components are loaded dynamically
     </td>
+</tr>
+<tr> 
         <td>
         Cna imporve the user experience while loaded by showing suspense fallback/ loading dicator
     </td>
