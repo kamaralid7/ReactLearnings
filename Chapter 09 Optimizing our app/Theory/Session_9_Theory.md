@@ -49,15 +49,21 @@ This error is thrown as Exception by React when the promise to dynamically impor
     <td>
     Though the initial page load time is reduced, this increases the load time of each component thats loaded dynamically
     </td>
+    <td>
+        Only the components that the user needs are loaded initially
+    </td>
+    <td>
+    There will be many http requests as the components are loaded dynamically
+    </td>
+        <td>
+        Cna imporve the user experience while loaded by showing suspense fallback/ loading dicator
+    </td>
+        <td>
+        But, this suspense boundary needs a new chunk of code to be written for showing the shimmer component
+    </td>
 </tr>
 </table>
 
-|Advantages	                                | Disadvantages
-Reduces the page load time by bundling the  | Though the initial page load time                                           | is reduced, this increases the load time                                          time of each component thats    loaded                                        dynamically
-large code into smaller bundles and laoding |
-dynamically only when the component is      |
-loaded	
+# When do we and why do we need suspense?
 
-Though the initial page load time is reduced, this increases the load time of each component thats loaded dynamically
-Only the components that the user needs are loaded initially	There will be many http requests as the components are loaded dynamically
-Cna imporve the user experience while loaded by showing suspense fallback/ loading dicator	But, this suspense boundary needs a new chunk of code to be written for showing the shimmer component
+Suspense are useful when the components are waiting (React.lazy components are getting dynamically loaded) before rendering. Today, React Suspense only supports one use case which is loading components dynamically with React lazy(). In the future, it will support other use cases like data fetching.
