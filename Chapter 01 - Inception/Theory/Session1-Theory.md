@@ -26,7 +26,7 @@ The name `React` was chosen because the library was designed to allow developers
 A: The `crossorigin` attribute sets the mode of the request to an HTTP CORS Request. 
 The purpose of crossorigin attribute is used to share the resources from one domain to another domain. Basically, it is used to handle the CORS request. It is used to handle the CORS request that checks whether it is safe to allow for sharing the resources from other domains.
 ### _Syntax_
-```sh
+```html
 <script crossorigin="anonymous|use-credentials">
 ```
 
@@ -43,13 +43,13 @@ A: `Development` is the stage of an application before it's made public while `p
 ## Q: What is `async and defer`?
 A: `Async` - The async attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed as soon` as it is available (do not block HTML DOM construction during downloading process) and don’t wait for anything.
 ### _Syntax_
-```sh
+```html
 <script src="demo_async.js" async></script>
 ```
 
 `Defer` - The defer attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed after the page` has finished parsing(when browser finished DOM construction). The `defer attribute` tells the browser `not to wait for the script`. Instead, the browser will continue to process the HTML, build DOM.
 ### _Syntax_
-```sh
+```html
 <script src="demo_defer.js" defer></script>
 ```
 
@@ -63,7 +63,7 @@ A: An arrow function expression is a compact alternative to a traditional functi
 - Arrow functions cannot use yield within their body and cannot be created as generator functions.
 
 ## Syntax
-```sh
+```javascript
 () => expression
 
 param => expression
@@ -86,7 +86,7 @@ param => {
 ```
 
 Rest parameters, default parameters, and destructuring within params are supported, and always require parentheses:
-```sh
+```javascript
 (a, b, ...r) => expression
 (a = 400, b = 20, c) => expression
 ([a, b] = [10, 20]) => expression
@@ -94,7 +94,7 @@ Rest parameters, default parameters, and destructuring within params are support
 ```
 
 Arrow functions can be async by prefixing the expression with the async keyword.
-```sh
+```javascript
 async param => expression
 async (param1, param2, ...paramN) => {
   statements
@@ -107,7 +107,7 @@ Let's decompose a traditional anonymous function down to the simplest arrow func
 >Note
 Traditional function expressions and arrow functions have more differences than their syntax.
 
-```sh
+```javascript
 // Traditional anonymous function
 (function (a) {
   return a + 100;
@@ -129,7 +129,7 @@ In the example above, both the parentheses around the parameter and the braces a
 
 The parentheses can only be omitted if the function has a single simple parameter. If it has multiple parameters, no parameters, or default, destructured, or rest parameters, the parentheses around the parameter list are required.
 
-```sh
+```javascript
 // Traditional anonymous function
 (function (a, b) {
   return a + b + 100;
@@ -152,7 +152,7 @@ const b = 2;
 
 The braces can only be omitted if the function directly returns an expression. If the body has additional lines of processing, the braces are required — and so is the return keyword. Arrow functions cannot guess what or when you want to return.
 
-```sh
+```javascript
 // Traditional anonymous function
 (function (a, b) {
   const chuck = 42;
@@ -168,7 +168,7 @@ The braces can only be omitted if the function directly returns an expression. I
 
 Arrow functions are always unnamed. If the arrow function needs to call itself, use a named function expression instead. You can also assign the arrow function to a variable so it has a name.
 
-```sh
+```javascript
 // Traditional Function
 function bob(a) {
   return a + 100;
@@ -184,7 +184,7 @@ Arrow functions can have either a concise body or the usual block body.
 
 In a concise body, only a single expression is specified, which becomes the implicit return value. In a block body, you must use an explicit return statement.
 
-```sh
+```javascript
 const func = (x) => x * x;
 // concise body syntax, implied "return"
 
@@ -196,7 +196,7 @@ const func2 = (x, y) => {
 
 Returning object literals using the concise body syntax `(params) => { object: literal }` does not work as expected.
 
-```sh
+```javascript
 const func = () => { foo: 1 };
 // Calling func() returns undefined!
 
@@ -210,12 +210,12 @@ const func3 = () => { foo() {} };
 This is because JavaScript only sees the arrow function as having a concise body if the token following the arrow is not a left brace, so the code inside braces ({}) is parsed as a sequence of statements, where foo is a label, not a key in an object literal.
 
 To fix this, wrap the object literal in parentheses:
-```sh
+```javascript
 const func = () => ({ foo: 1 });
 ```
 ## Cannot be used as methods
 Arrow function expressions should only be used for non-method functions because they do not have their own this. Let's see what happens when we try to use them as methods:
-```sh
+```javascript
 "use strict";
 
 const obj = {
@@ -231,7 +231,7 @@ obj.c(); // logs 10, Object { /* … */ }
 ```
 
 ### Another example involving Object.defineProperty():
-```sh
+```javascript
 "use strict";
 
 const obj = {
@@ -246,7 +246,7 @@ Object.defineProperty(obj, "b", {
 });
 ```
 Because a class's body has a this context, arrow functions as class fields close over the class's this context, and the this inside the arrow function's body will correctly point to the instance (or the class itself, for static fields). However, because it is a closure, not the function's own binding, the value of this will not change based on the execution context.
-```sh
+```javascript
 class C {
   a = 1;
   autoBoundMethod = () => {
@@ -261,7 +261,7 @@ autoBoundMethod(); // 1
 // If it were a normal method, it should be undefined in this case
 ```
 Arrow function properties are often said to be "auto-bound methods", because the equivalent with normal methods is:
-```sh
+```javascript
 class C {
   a = 1;
   constructor() {
@@ -278,7 +278,7 @@ For similar reasons, the call(), apply(), and bind() methods are not useful when
 
 ## No binding of arguments
 Arrow functions do not have their own arguments object. Thus, in this example, arguments is a reference to the arguments of the enclosing scope:
-```sh
+```javascript
 
 const arguments = [1, 2, 3];
 const arr = () => arguments[0];
@@ -294,7 +294,7 @@ foo(3); // 3 + 3 = 6
 ```
 >Note: You cannot declare a variable called arguments in strict mode, so the code above would be a syntax error. This makes the scoping effect of arguments much easier to comprehend.
 In most cases, using rest parameters is a good alternative to using an arguments object.
-```sh
+```javascript
 function foo(n) {
   const f = (...args) => args[0] + n;
   return f(10);
@@ -305,7 +305,7 @@ foo(1); // 11
 ## Cannot be used as constructors
 Arrow functions cannot be used as constructors and will throw an error when called with new. They also do not have a prototype property.
 
-```sh
+```javascript
 const Foo = () => {};
 const foo = new Foo(); // TypeError: Foo is not a constructor
 console.log("prototype" in Foo); // false
@@ -315,13 +315,13 @@ The yield keyword cannot be used in an arrow function's body (except when used w
 
 ## Line break before arrow
 An arrow function cannot contain a line break between its parameters and its arrow.
-```sh
+```javascript
 const func = (a, b, c)
   => 1;
 // SyntaxError: Unexpected token '=>'
 ```
 For the purpose of formatting, you may put the line break after the arrow or use parentheses/braces around the function body, as shown below. You can also put line breaks between parameters.
-```sh
+```javascript
 const func = (a, b, c) =>
   1;
 
@@ -341,19 +341,19 @@ const func4 = (
 ```
 ## Precedence of arrow
 Although the arrow in an arrow function is not an operator, arrow functions have special parsing rules that interact differently with operator precedence compared to regular functions.
-```sh
+```javascript
 let callback;
 
 callback = callback || () => {};
 // SyntaxError: invalid arrow-function arguments
 ```
 Because => has a lower precedence than most operators, parentheses are necessary to avoid callback || () being parsed as the arguments list of the arrow function.
-```sh
+```javascript
 callback = callback || (() => {});
 ```
 ## Examples
 ### Using arrow functions
-```sh
+```javascript
 // An empty arrow function returns undefined
 const empty = () => {};
 
@@ -399,7 +399,7 @@ setTimeout(() => {
 ```
 ## Using call, bind, and apply
 The call(), apply(), and bind() methods work as expected with traditional functions, because we establish the scope for each of the methods:
-```sh
+```javascript
 const obj = {
   num: 100,
 };
@@ -418,7 +418,7 @@ const boundAdd = add.bind(obj);
 console.log(boundAdd(1, 2, 3)); // 106
 ```
 With arrow functions, since our add function is essentially created on the globalThis (global) scope, it will assume this is the globalThis.
-```sh
+```javascript
 const obj = {
   num: 100,
 };
@@ -437,7 +437,7 @@ console.log(boundAdd(1, 2, 3)); // 48
 Perhaps the greatest benefit of using arrow functions is with methods like setTimeout() and EventTarget.prototype.addEventListener() that usually require some kind of closure, call(), apply(), or bind() to ensure that the function is executed in the proper scope.
 
 With traditional function expressions, code like this does not work as expected:
-```sh
+```javascript
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -452,7 +452,7 @@ const obj = {
 obj.doSomethingLater(); // logs "NaN", because the property "count" is not in the window scope.
 ```
 With arrow functions, the this scope is more easily preserved:
-```sh
+```javascript
 const obj = {
   count: 10,
   doSomethingLater() {
