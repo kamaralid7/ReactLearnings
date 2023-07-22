@@ -1,126 +1,15 @@
 # Assignment: Chapter-12 Let's build our store
 
-## useContext vs Redux.
-<table>
-    <tr>
-        <th>
-        Context API
-        </th>
-        <th>
-        Redux
-        </th>
-    </tr>
-    <tr>
-            <td>
-            `Context` provides a way to share values between components (throughout the application) without having to explicitly pass a prop through every level of the tree.
-        </td>
-        <td>
-        Redux is a central store for storing the data of the applications.
-        </td>
-    </tr>
-        <tr>
-                <td>
-                `Context API` is built-in React tool and does not have to be downloaded separately
-        </td>
-        <td>
-        Redux is an third-party open source library not part of React which provides a central store, and actions to modify the store.
-        </td>
-    </tr>
-        <tr>
-                <td>
-        </td>
-        <td>
-        </td>
-    </tr>
-        <tr>
-                <td>
-                Requires minimal Setup
-        </td>
-        <td>
-        Requires extensive setup to integrate it with a React Application
+* useContext vs Redux.
 
-        </td>
-    </tr>
-        <tr>
-                <td>
-                Specifically designed for static data, that is not often refreshed or updated
-        </td>
-        <td>
-        Usefule for both static and dynamic data
-        </td>
-    </tr>
-    <tr>
-        <td>
-                Difficult to debug
-        </td>
-        <td>
-        Easy to debug using Redux dev tool
-        </td>
-    </tr>
-    <tr>
-        <td>
-        Useful for small projects
-        </td>
-        <td>
-        Useful for larger projects
-        </td>
-    </tr>
-</table>
+* Advantage of using Redux Toolkit over Redux.
 
-## Advantage of using Redux Toolkit over Redux.
+* Explain Dispatcher.
 
-1.  `Abstraction and Convenience:` Redux Toolkit provides a set of abstractions and conveniences on top of regular Redux, which make it easier to work with and manage the state of your application. This includes features such as the createSlice function for creating slices of state and its associated actions and reducer, and the createStore function for creating a Redux store with pre-configured middleware and enhancers.
+* Explain Reducer.
 
-2.  `Immutable updates:` Regular Redux requires you to create a new state object every time you make an update, which can become repetitive and error-prone. Redux Toolkit provides a way to update the state immutably, using its built-in createSlice function.
+* Explain slice.
 
-3.  `Simplified Reducers:` In regular Redux, you write your own reducers, which can become complex and difficult to manage as your application grows. With Redux Toolkit, you can use the createSlice function to generate reducers for you, based on the state updates you define.
+* Explain selector.
 
-4.  `Improved Performance:` Redux Toolkit uses advanced performance optimizations, such as memoization, lazy evaluation, and selective updates, to make your application faster and more efficient.
-
-5.  `Better Debugging:` Redux Toolkit provides better debugging tools, such as the ability to log and replay actions, inspect the current state of your application, and easily track the changes made to your state over time.
-
-## Explain Dispatcher.
-A dispatcher is a function that dispatches actions to the store. In Redux, actions are used to describe changes to the state, and dispatching an action is the way to trigger those changes.
-
-* How to create & use dispatcher function ?
-```javascript
-const dispatch = useDispatch();
-```
-
-This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
-
-```javascript
-dispatch(actionCreator(data)); // returns an action payload object 
-```
-
-When you dispatch an action creator, it returns an action object that the reducer function uses to update the state. The dispatcher function is used to dispatch the action creator and which in turns calls the reducer function to trigger the update.
-
-## Explain Reducer.
-A reducer is a pure function in Redux that takes the current state of your application and an action, and returns a new state based on that action.
-
-Example :
-
-```javascript
-addItem: (state, action) => {
-   const item = state.items[action.payload.id];
-   const quantity = item && item.hasOwnProperty('quantity')
-     ? state.items[action.payload.id]?.quantity + 1 : 1;
-   state.items[action.payload.id] = { ...action.payload, quantity };
-   state.totalItemsCount = state.totalItemsCount + 1;
-},
-```
-Here based on the action object, the state is updated inside teh reducer function.
-
-## Explain slice.
-
-In Redux Toolkit, a slice is a piece of the state that is managed by a single set of actions and reducer.
-
-## Explain selector.
-
-A selector is a pure function that takes the current state of your application and returns a derived value based on that state.
-
-useSelector is a hook from the react-redux library that allows you to subscribe to the state of your Redux store from a React component. The useSelector hook takes a selector function as its argument, which is used to extract data from the state tree. The component will re-render whenever the state of your Redux store changes and the derived value returned by the selector function changes.
-
-```javascript
-const totalItemsCount = useSelector(store => store.cart.totalItemsCount);
-```
+* Explain createSlice and the configuration it takes.
