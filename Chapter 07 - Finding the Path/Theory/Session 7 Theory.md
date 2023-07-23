@@ -5,12 +5,12 @@
 ## Q: What are various ways to `add images` into our App? Explain with `code examples`.
 A: Using the `full URL of the image` for the web (CDN) or any public images.
 Example : 
-```
+```html
 <img src="https://reactjs.org/logo-og.png" alt="React Image" />
 ```
 Adding the image into the project 
 `Drag your image into your project` and `import it` into the desired component
-```
+```react
 import reactLogo from "./reactLogo.png";
 export default function App() {
   return <img src={reactLogo} alt="react logo" />
