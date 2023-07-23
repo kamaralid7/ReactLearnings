@@ -75,3 +75,15 @@ Enzyme is a JavaScript testing utility for React, developed and maintained by Ai
     </tr>
 </table>
 
+## What is Jest and why do we use it?
+
+Jest is a JavaScript testing framework developed and maintained by Facebook. It is widely used for testing JavaScript applications, especially for React applications. Jest provides a complete and integrated testing solution, with features such as automatic test discovery, mocking, code coverage, and assertion libraries.
+
+Jest is a popular and widely used testing framework for JavaScript applications due to the following reasons :
+
+Simplicity - minimal configuration & low learning curve
+Speed - fast test execution, automatic test caching, parallel test running
+Integration - integrates well with popular JavaScript tools and frameworks, such as React, Babel, and Webpack.
+Feature - mocking, spying, and code coverage reporting
+Jest makes it easy for developers to write and run tests, ensuring the quality and reliability of their code.
+
