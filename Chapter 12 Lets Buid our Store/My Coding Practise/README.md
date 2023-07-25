@@ -35,6 +35,14 @@ const store = configureStore();
 
 Provide my store to app  
 &emsp;-   <Provider store = {store}> - import from react-redux.
+```js
+    import {Provider} from "react-redux";
+    import store from "./src/utils/store";
+    
+    <Provider store= {store}>
+
+    </Provider>
+```
 
 Slice  
 &emsp;- @reduxjs/toolkit -   createSlice({  
@@ -45,7 +53,36 @@ Slice
 &emsp;&emsp;&emsp;}  
 &emsp;&emsp;})  
 &emsp;&emsp;export const {} = cartSlice.actions;  
-&emsp;&emsp;export default cartSlice.reducer;    
+&emsp;&emsp;export default cartSlice.reducer; 
+
+```js
+import {createSlice} from "@reduxjs/toolkit"
+
+const cartSlice = createSlice({
+    name:"cart",
+    
+    initialState: {
+        items:[]
+    },
+
+    reducers: {
+        addItem : (state, action) =>{
+            state.items.push(action.payload);
+        },
+        removeItem: (state, action) => {
+            state.items.pop();
+        },
+        clearCart: (state) => {
+            state.items = [];
+        },
+    },   
+});
+
+export const { addItem, removeItem, clearCart } = cartSlice.actions;
+
+export default cartSlice.reducer;
+
+```
 
 Put that Slice into Store.  
 &emsp;&emsp;-{  
@@ -54,6 +91,19 @@ Put that Slice into Store.
 &emsp;&emsp;&emsp;&emsp;user: userSlice  
 &emsp;&emsp;}  
 &emsp;}  
+
+```js
+import { configureStore } from "@reduxjs/toolkit"
+import  cartReducer  from "./cartSlice";
+
+const store = configureStore({
+    reducer: {
+        cart: cartReducer,
+    }
+});
+
+export default store;
+```
 
 # Middleware
 
