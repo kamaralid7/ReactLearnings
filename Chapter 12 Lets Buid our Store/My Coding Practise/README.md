@@ -27,7 +27,11 @@ Do not return anything from reducer take a state and modify it.
 
 ## Steps for Reducer
 Create Store.  
-&emsp;-   configureStore() - @reduxjs/toolkit.  
+&emsp;-   configureStore() - @reduxjs/toolkit. 
+```js
+import { configureStore } from "@reduxjs/toolkit";
+const store = configureStore();
+``` 
 
 Provide my store to app  
 &emsp;-   <Provider store = {store}> - import from react-redux.
