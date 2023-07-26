@@ -105,6 +105,36 @@ const store = configureStore({
 export default store;
 ```
 
+## Steps to read from Redux slice
+
+Using Selector
+
+```js
+    import { useSelector } from 'react-redux'
+    import store from '../utilities/store'
+    
+    const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
+```
+
+## Steps to dispatch reducer
+
+Using dispatcher 
+
+When we click on + it 
+1.  dispatches and action 
+2.  which calls the reducer function 
+3.  which updates/modifies the slice of our store.
+
+```js
+    import { useDispatch } from 'react-redux'
+    import { toggleMenu } from '../utilities/appSlice'
+
+    const dispatch = useDispatch()
+    const toggleMenuHandler = () => {
+        dispatch(toggleMenu());
+    }
+```
+
 # Middleware
 
 # Thunk
