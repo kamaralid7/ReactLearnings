@@ -2,58 +2,6 @@
 # Chapter 08 - Let's get Classy
 
 
-## Q: How do you create `Nested Routes` react-router-dom configuration?
-A: We can create a `Nested Routes` inside a react router configuration as follows:
-first call createBrowserRouter for routing different pages
-```jsx
-const router = createBrowserRouter([
-   {
-      path: "/", // show path for routing
-      element: <Parent />, // show component for particular path
-      errorElement: <Error />, // show error component for path is different
-      children: [ // show children component for routing
-         {
-            path: "/path",
-            element: <Child />
-         }
-      ],
-   }
-])
-```
-Now we can create a nested routing for `/path` using `children` again as follows:
-
-```jsx
-const router = createBrowserRouter([
-   {
-      path: "/",
-      element: <Parent />,
-      errorElement: <Error />,
-      children: [
-         {
-            path: "/path",
-            element: <Child />,
-            children: [ // nested routing for subchild
-               {
-                  path: "/child",
-                  element: <SubChild />,
-               }
-            ],
-         }
-      ],
-   }
-])
-```
-
-
-## Q: Read about `createHashRouter`, `createMemoryRouter` from React Router docs.
-A: `createHashRouter` is useful if you are unable to configure your web server to direct all traffic to your React Router application. Instead of using normal URLs, it will use the `hash (#)` portion of the URL to manage the "application URL".
-Other than that, it is functionally the same as `createBrowserRouter`.
-For more reference [Read more](https://reactrouter.com/en/main/routers/create-hash-router)
-
-`createMemoryRouter` Instead of using the browsers history a memory router manages it's own history stack in memory. It's primarily useful for testing and component development tools like Storybook, but can also be used for running React Router in any non-browser environment.
-For more reference [Read more](https://reactrouter.com/en/main/routers/create-memory-router)
-
-
 ## Q: What is the order of life cycle method calls in `Class Based Components`?
 A: Following is the order of lifecycle methods calls in `Class Based Components`:
 1. constructor()

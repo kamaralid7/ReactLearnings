@@ -2,6 +2,7 @@ import food from "../Images/burger-image.png";
 import { Outlet } from "react-router-dom";
 import ProfileClassComponent from "./ProfileComponent";
 import ProfileFunctionalComponent from "./profile"
+import ProfileFunctionalComponent2 from "./Profile2"
 import React from "react";
 
 
@@ -41,6 +42,9 @@ class About extends React.Component{
         </div>
         <div>
           <ProfileFunctionalComponent />
+        </div>
+        <div>
+          <ProfileFunctionalComponent2 />
         </div>
         <div className="profileOutlet">
           <Outlet />
